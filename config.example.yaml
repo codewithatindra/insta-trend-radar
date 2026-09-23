@@ -1,0 +1,35 @@
+# Copy to config.yaml and edit.
+
+# Your niche. Presets: fashion, travel, fitness, food, tech, beauty.
+# Anything else works too - it becomes the first seed hashtag.
+niche: fashion
+
+# Extra seed hashtags to watch (optional). Max 30 unique hashtags per 7 days per Instagram account.
+hashtags:
+  - desifashion
+
+rules:
+  posts_per_hashtag: 50   # posts fetched per hashtag per edge (top + recent)
+  min_posts: 3            # a hashtag needs at least this many posts to count
+  min_growth: 2.0         # alert when it appears 2x more than last run
+  top_n: 5                # max trends per alert
+  cooldown_hours: 24      # don't re-alert the same hashtag within this window
+
+database: data/trend_radar.sqlite
+
+# Where alerts go. Use "${ENV_NAME}" to read secrets from environment / .env.
+alerts:
+  - type: console
+  # - type: telegram
+  #   bot_token: "${TELEGRAM_BOT_TOKEN}"
+  #   chat_id: "${TELEGRAM_CHAT_ID}"
+  # - type: webhook          # Slack incoming webhook (key: text) or Discord (key: content)
+  #   url: "${WEBHOOK_URL}"
+  #   key: text
+  # - type: email
+  #   host: smtp.gmail.com
+  #   port: 587
+  #   username: "${SMTP_USER}"
+  #   password: "${SMTP_PASSWORD}"
+  #   to: you@example.com
+api_version: v26.0   # Graph API version
