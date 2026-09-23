@@ -4,7 +4,11 @@
 # Anything else works too - it becomes the first seed hashtag.
 niche: fashion
 
-# Extra seed hashtags to watch (optional). Max 30 unique hashtags per 7 days per Instagram account.
+# Live sources: bluesky and mastodon need no account. Add instagram only if you have Meta Graph API access.
+sources: [bluesky, mastodon]
+mastodon_instance: mastodon.social
+
+# Extra seed hashtags to watch (optional). If instagram is on: max 30 unique hashtags per 7 days.
 hashtags:
   - desifashion
 
@@ -14,6 +18,7 @@ rules:
   min_growth: 2.0         # alert when it appears 2x more than last run
   top_n: 5                # max trends per alert
   cooldown_hours: 24      # don't re-alert the same hashtag within this window
+  max_age_days: 3         # only count posts from the last N days
 
 database: data/trend_radar.sqlite
 
