@@ -19,7 +19,7 @@ import requests
 
 from .graph_api import InstagramGraphClient, Post
 
-USER_AGENT = "insta-trend-radar/0.2 (+https://github.com/codewithatindra/insta-trend-radar)"
+USER_AGENT = "trend-radar-india/0.3 (+https://github.com/codewithatindra/insta-trend-radar)"
 TAG_RE = re.compile(r"<[^>]+>")
 
 

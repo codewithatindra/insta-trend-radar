@@ -51,7 +51,7 @@ class EmailAlert:
 
     def send(self, text: str) -> None:
         msg = EmailMessage()
-        msg["Subject"] = "Insta Trend Radar alert"
+        msg["Subject"] = "Trend Radar India alert"
         msg["From"], msg["To"] = self.sender, self.to
         msg.set_content(text)
         with smtplib.SMTP(self.host, self.port) as s:
