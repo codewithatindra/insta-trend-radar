@@ -1,8 +1,19 @@
 # Copy to config.yaml and edit.
 
-# Your niche. Presets: fashion, travel, fitness, food, tech, beauty.
+# ---- India Pulse (python -m trend_radar india) ----
+# What India is searching (Google Trends India) and watching (YouTube India), filtered to a niche.
+# Niches: all, cricket, bollywood, festivals, startups, finance, travel, food, fashion, beauty,
+# fitness, tech, news. Anything else is used as a keyword.
+india_niche: all
+india_sources: [google, youtube]   # youtube needs YOUTUBE_API_KEY in .env (free)
+geo: IN
+india_keywords: []                 # extra words to match, e.g. [nomadiq, goa, "मौसम"]
+
+# ---- Hashtag radar (python -m trend_radar run / watch) ----
+# Your niche. Presets: fashion, travel, fitness, food, tech, beauty, cricket, bollywood,
+# festivals, startups, finance.
 # Anything else works too - it becomes the first seed hashtag.
-niche: fashion
+niche: travel
 
 # Live sources: bluesky and mastodon need no account. Add instagram only if you have Meta Graph API access.
 sources: [bluesky, mastodon]
@@ -10,7 +21,7 @@ mastodon_instance: mastodon.social
 
 # Extra seed hashtags to watch (optional). If instagram is on: max 30 unique hashtags per 7 days.
 hashtags:
-  - desifashion
+  - incredibleindia
 
 rules:
   posts_per_hashtag: 50   # posts fetched per hashtag per edge (top + recent)
