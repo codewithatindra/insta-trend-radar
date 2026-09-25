@@ -1,6 +1,6 @@
 # Trend Radar India 🇮🇳
 
-🌐 **Live site: https://codewithatindra.github.io/insta-trend-radar/**
+🌐 **TrendPulse - live site: https://codewithatindra.github.io/insta-trend-radar/**
 
 Know what India is talking about before your feed does. Pick a niche (cricket, Bollywood, festivals, startups, finance, travel, food, fashion, tech...) and get a short brief on Telegram, Slack/Discord or email: what Indians are searching on Google, what's trending on YouTube India, and which hashtags are picking up.
 
