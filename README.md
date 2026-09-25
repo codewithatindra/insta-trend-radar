@@ -8,18 +8,18 @@ TrendPulse is an open-source, command-line trend radar for Indian creators, soci
 
 > **Demo note:** The linked GitHub Pages site is a static product page with an animated, prewritten brief. It does not fetch live trends in the browser. The Python CLI below fetches live data when you run it. The images here are screenshots of the static site, not evidence of a live dashboard or deployed backend.
 
-![TrendPulse landing page showing the India-first proposition](docs/trendpulse-hero.png)
+![TrendPulse landing page showing the India-first proposition](docs/1-trendpulse-hero.png)
 
 <details>
 <summary>More views of the site</summary>
 
 Illustrated brief (the site's scripted example, not a live feed):
 
-![Animated sample of a finance trend brief on the site](docs/trendpulse-brief-preview.png)
+![Animated sample of a finance trend brief on the site](docs/2-trendpulse-brief-preview.png)
 
 Source overview:
 
-![The site's Google Trends, YouTube, Bluesky/Mastodon and optional Instagram source cards](docs/trendpulse-sources.png)
+![The site's Google Trends, YouTube, Bluesky/Mastodon and optional Instagram source cards](docs/3-trendpulse-sources.png)
 
 </details>
 
