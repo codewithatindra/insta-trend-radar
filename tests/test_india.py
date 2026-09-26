@@ -47,3 +47,27 @@ def test_brief_marks_new_and_ist():
 def test_short_keywords_match_whole_words_only():
     topics = [Topic("heavy rain alert", "google"), Topic("new ai phone launch", "google")]
     assert [t.title for t in match_niche(topics, "tech")] == ["new ai phone launch"]
+
+
+def test_cli_top_limits_google_brief_without_network(monkeypatch, tmp_path, capsys):
+    from trend_radar import cli
+
+    topics = [Topic(f"cricket topic {n}", "google", traffic=10000 - n) for n in range(4)]
+    monkeypatch.setattr(cli, "google_trends", lambda geo: topics)
+    monkeypatch.setattr(cli, "youtube_trending", lambda geo: [])
+    monkeypatch.setattr(cli, "load_config", lambda path: {"database": str(tmp_path / "test.sqlite")})
+    monkeypatch.setattr(cli, "build_channels", lambda alerts: [type("Console", (), {"send": lambda self, text: print(text)})()])
+    cli.main(["india", "--niche", "cricket", "--top", "2", "--config", str(tmp_path / "absent.yaml")])
+    output = capsys.readouterr().out
+    assert "cricket topic 0" in output and "cricket topic 1" in output
+    assert "cricket topic 2" not in output and "cricket topic 3" not in output
+
+
+def test_cli_top_rejects_zero(capsys):
+    import pytest
+    from trend_radar.cli import main
+
+    with pytest.raises(SystemExit) as err:
+        main(["india", "--top", "0"])
+    assert err.value.code == 2
+    assert "--top must be a positive integer" in capsys.readouterr().err
