@@ -121,6 +121,7 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--config", default="config.yaml")
     p.add_argument("--niche", help="all, cricket, bollywood, festivals, startups, finance, travel, food, tech, ...")
     p.add_argument("--every", type=int, help="repeat every N minutes (omit for a single brief)")
+    p.add_argument("--top", type=int, metavar="N", help="show the top N topics per source (default: 5)")
     args = ap.parse_args(argv)
 
     if args.cmd == "demo":
@@ -132,6 +133,10 @@ def main(argv: list[str] | None = None) -> None:
         pass
     cfg = load_config(args.config)
     if args.cmd == "india":
+        if args.top is not None:
+            if args.top < 1:
+                ap.error("--top must be a positive integer")
+            cfg.setdefault("rules", {})["top_n"] = args.top
         cfg["niche"] = args.niche or cfg.get("india_niche", "all")
         while True:
             india_once(cfg)
